@@ -42,9 +42,9 @@ const Navbar = () => {
 
   const themeChangeHandler = (e) => {
     const currentTheme = e.target.getAttribute("data-set-theme");
-
     setTheme(currentTheme);
   };
+
   return (
     <div className="navbar w-auto mb-2 shadow-lg rounded-box bg-neutral text-neutral-content mx-auto">
       <div className="px-2 mx-2 navbar-start">
@@ -99,24 +99,45 @@ const Navbar = () => {
             <div className="grid grid-cols-1 gap-3 p-3">
               {THEMES.map((theme, i) => (
                 <div
+                  key={`${theme}-${i}`}
                   className="outline-base-content overflow-hidden rounded-lg outline-2 outline-offset-2"
-                  data-set-theme={theme}
-                  data-act-className="outline"
                 >
                   <div
                     data-theme={theme}
                     className="bg-base-100 text-base-content w-full cursor-pointer font-sans"
                   >
                     <div className="grid grid-cols-5 grid-rows-3">
-                      <div className="col-span-5 row-span-3 row-start-1 flex gap-1 py-3 px-4">
-                        <div className="flex-grow text-sm font-bold">
+                      <div
+                        data-set-theme={theme}
+                        className="col-span-5 row-span-3 row-start-1 flex gap-1 py-3 px-4"
+                        onClick={themeChangeHandler}
+                      >
+                        <div
+                          data-set-theme={theme}
+                          className="flex-grow text-sm font-bold"
+                        >
                           {theme}
                         </div>{" "}
-                        <div className="flex flex-shrink-0 flex-wrap gap-1">
-                          <div className="bg-primary w-2 rounded"></div>{" "}
-                          <div className="bg-secondary w-2 rounded"></div>{" "}
-                          <div className="bg-accent w-2 rounded"></div>{" "}
-                          <div className="bg-neutral w-2 rounded"></div>
+                        <div
+                          data-set-theme={theme}
+                          className="flex flex-shrink-0 flex-wrap gap-1"
+                        >
+                          <div
+                            data-set-theme={theme}
+                            className="bg-primary w-2 rounded"
+                          ></div>{" "}
+                          <div
+                            data-set-theme={theme}
+                            className="bg-secondary w-2 rounded"
+                          ></div>{" "}
+                          <div
+                            data-set-theme={theme}
+                            className="bg-accent w-2 rounded"
+                          ></div>{" "}
+                          <div
+                            data-set-theme={theme}
+                            className="bg-neutral w-2 rounded"
+                          ></div>
                         </div>
                       </div>
                     </div>
