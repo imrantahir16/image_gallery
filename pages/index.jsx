@@ -14,7 +14,7 @@ const Home = ({ resources }) => {
       </Head>
       <Navbar />
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <div className="p-4 space-x-4 carousel carousel-center bg-neutral rounded-box mt-4">
+        <div className="p-4 space-x-4 carousel carousel-center bg-primary rounded-box mt-4">
           {resources.map((resource, index) => (
             <div key={`carousel-${index}`} className="carousel-item">
               <Image

@@ -1,4 +1,4 @@
-const { useState } = require("react");
+const { useState, useEffect } = require("react");
 
 const THEMES = [
   "light",
@@ -32,4 +32,17 @@ const THEMES = [
   "winter",
 ];
 
-const useTheme = () => {};
+const useTheme = () => {
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  return {
+    theme,
+    setTheme,
+  };
+};
+
+export default useTheme;

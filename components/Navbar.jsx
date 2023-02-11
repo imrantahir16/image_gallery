@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import useTheme from "../hooks/useTheme";
 
 const THEMES = [
   "light",
@@ -34,11 +34,7 @@ const THEMES = [
 ];
 
 const Navbar = () => {
-  const [theme, setTheme] = useState("light");
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
+  const { theme, setTheme } = useTheme();
 
   const themeChangeHandler = (e) => {
     const currentTheme = e.target.getAttribute("data-set-theme");
@@ -46,7 +42,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar w-auto mb-2 shadow-lg rounded-box bg-neutral text-neutral-content mx-auto">
+    <div className="navbar w-auto mb-2 shadow-lg rounded-box bg-primary text-primary-content mx-auto">
       <div className="px-2 mx-2 navbar-start">
         <span className="text-lg font-bold">Image Gallery</span>
       </div>
